@@ -72,6 +72,8 @@
 							so that it could help with philosophy study. 
 							As for philosophizing itself, it's every philosopher's own work. 
 							</p>
+						<a href="net.html" class="image right thumb">
+							<img src="images/fulls/network.jpg" alt="" /></a>
 						<p>The main technology of this project is Bidirectional Encoder Representations from Transformers (BERT). 
 							I employed <a href='https://huggingface.co/bert-base-german-cased'>a BERT model (German-cased pretrained)</a> 
 							and trained it on <a href='https://www.projekt-gutenberg.org/autoren/namen/kant.html'>Kant's texts from Gutenberg DE</a>. 
@@ -84,13 +86,14 @@
 						<h3 id='The Tech'>II. The Tech</h3>
 						<p>P.S. You might want to skim over this part if you don't have any background knowledge. : )</p>
 						<h4 id='Texts and Preprocessing'>Texts and Preprocessing</h4>
-						<a href="https://www.projekt-gutenberg.org/autoren/namen/kant.html" class="image right thumb">
+						<a href="https://www.projekt-gutenberg.org/autoren/namen/kant.html" class="image right thumb" style="width: 40%;">
 							<img src="images/fulls/gutenberg.jpg" alt="" /></a>
 						<p><strong>1.&#9;Acquire the texts</strong>: I downloaded the texts from <a href='https://www.gutenberg.org/ebooks/search/?query=kant+&submit_search=Go%21'>Gutenberg</a> 
 							and scraped a few more down from <a href='https://www.projekt-gutenberg.org/autoren/namen/kant.html'>from Gutenberg DE</a>. 
 							I paid close attention to the HTML layout of projekt-gutenberg.de, 
 							e.g. extra line breaks, to scrape them down to continuous texts.</p>
-							<a href="https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages" class="image left thumb">
+							<a href="https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages" 
+							class="image left thumb" style="width: 40%;">
 								<img src="images/fulls/wiktionary.jpg" alt="" /></a>
 							<p ><strong>2.&#9;Modernize the old spellings</strong>: 
 							Some of Kant's texts I acquired comprises 
@@ -213,7 +216,7 @@
 							I use the (1 - log<sub>2</sub>d) (d denotes the distance between two vectors) 
 							to indicate how closely two terms are related together (namely, their “<i>relatedness</i>”). 
 							The more related words cluster together in <a href="net.html">the network</a>. </p>
-						<a href="net.html" class="image fit thumb" style="margin-bottom: 0.8em;">
+						<a href="net.html" class="image fit thumb" style="margin-bottom: 0.1em;">
 								<img src="images/fulls/network.jpg" alt="" /></a>
 						<p class="havesub" style = 'text-align: center; font-size: smaller;'>This is part of the whole network. Click on the image above to see the whole 
 							network (html layout).</p>
@@ -241,7 +244,7 @@
 
 						<h3 id='Places to Improve and Future Works'>IV. Places to Improve and Future Works</h3>
 						<h4>Regarding preprocessing and term extraction</h4>
-						<p class = "image right"><img src="images/fulls/autograph.jpg" alt="" /></p>
+						<p class = "image right" style = 'width: 40%;'><img src="images/fulls/autograph.jpg" alt="" /></p>
 						<p class="havesub"><strong>Latin and old spelling</strong>: 
 							Although I have already scraped all of the old spellings from wiktionary, 
 							the corpus there is still not comprehensive enough. An efficient way to 
@@ -305,6 +308,7 @@
 							are prone to talk about the same set of terms oftentimes, or they set aside 
 							the same set of terms. It might also be interesting to have a look at why 
 							this is the case.</p>
+
 						<h3 id='Conclusion'>V. Conclusion</h3>
 						<p>The largest surprise and satisfaction this project gives me is how accurate my model 
 							predicts the masked terms, even though I might not have done perfectly in the 
@@ -312,14 +316,43 @@
 							values apt for predictions, already practical for learning purposes as it is, 
 							is still a long way from being complete. As listed above, there is still a lot to be 
 							done in my future works.</p>
+						<p class = "image right"><img src="images/fulls/school of athens.jpg" alt="" /></p>
 						<p>Like I've said in the introduction, NLP hasn't been largely put into use in the 
 							field of philosophical research – maybe less than all other disciplines in 
 							Humanities. Conceding that philosophers do have their reason to not employ 
 							this technique for philosophizing, it could indeed be practical when it comes to assisting 
-							one to philosophize. And it indeed gives me a sense of fulfillment when my 
+							one to philosophize. </p>
+						<p>It indeed gives me a sense of fulfillment when my 
 							work helped my students to comprehend Kant's CPR. In this respect do I believe 
 							my dabbling in this project is meaningful, and I feel excited about all the future works I
 							 would've done in the industry of information technology! : )</p>
+						<h4>Sources and Bibliographies:</h4>
+						<p class="enu">•&#9;<a href = 'https://huggingface.co/bert-base-german-cased'>
+							ttps://huggingface.co/bert-base-german-cased</a></p>
+						<p class="enu">•&#9;<a href = 'https://www.projekt-gutenberg.org/autoren/namen/kant.html'>
+							https://www.projekt-gutenberg.org/autoren/namen/kant.html</a></p>
+						<p class="enu">•&#9;<a href = 'https://www.degruyter.com/document/doi/10.1524/9783050050386.5/html'>
+							Mohr, Georg and Willaschek, Marcus. "1. Einleitung: Kants Kritik der reinen Vernunft". 
+							Immanuel Kant: Kritik der reinen Vernunft, edited by Georg Mohr and Marcus Willaschek, 
+							Berlin: Akademie Verlag, 2010, pp. 5-36.</a></p>
+						<p class="enu">•&#9;<a href = 'https://www.projekt-gutenberg.org/autoren/namen/kant.html'>
+							https://www.projekt-gutenberg.org/autoren/namen/kant.html</a></p>
+						<p class="enu">•&#9;<a href = 'https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages'>
+							https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages</a></p>
+						<p class="enu">•&#9;<a href = 'https://www.gutenberg.org/ebooks/search/?query=kant+&submit_search=Go%21'>
+							https://www.gutenberg.org/ebooks/search/?query=kant+&submit_search=Go%21</a></p>
+						<p class="enu">•&#9;<a href = 'https://spacy.io/'>
+							https://spacy.io/</a></p>
+						<p class="enu">•&#9;<a href = 'https://universaldependencies.org/u/pos/'>
+							https://universaldependencies.org/u/pos/</a></p>
+						<p class="enu">•&#9;<a href = 'https://link.springer.com/article/10.1007/s007999900023'>
+							Frantzi, K., Ananiadou, S. & Mima, H. Automatic recognition of multi-word terms:. 
+							the C-value/NC-value method . Int J Digit Libr 3, 115–130 (2000).</a></p>
+
+
+						
+
+
 
 					</section>
 
