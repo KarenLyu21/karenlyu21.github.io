@@ -1,0 +1,359 @@
+<html>
+	<head>
+		<title>Article: Terminology Network in Kant's Critique of Pure Reason</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<h1><strong>Terminology Network in 
+						Kant's <i>Critique of Pure Reason</i></strong></br>
+					<span style = 'font-size: 90%;'><strong><i>by <a href = 'index.html'>Karen Lyu</a></i></strong></br>
+					<a href='#Keywords'>Keywords</a></br>
+					<a href='#Introduction'>I. Introduction</a></br>
+					<a href='#The Tech'>II. The Tech</a></br>
+					<span style = 'font-size: 90%;'><a href='#Texts and Preprocessing'>
+						Texts and Preprocessing</a></span></br>
+					<span style = 'font-size: 90%;'><a href='#Training, Testing, and the Excellent Result'>
+						Training, Testing, and the Excellent Result</a></span></br>
+					<a href='#Evaluation of the Outcome'>III. Evaluation of the Outcome</a></br>
+					<a href='#Places to Improve and Future Works'>IV. Places to Improve and Future Works</a></br>
+					<a href='#Conclusion'>V. Conclusion</a></h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>How to Unravel the Perplexity in Kant's Critique of Pure Reason: 
+								An NLP Project to Build a Terminology Network</h2>
+						</header>
+						<h3 class = "align-right"><a href = 'index.html'>Karen Lyu</a></h3>
+						<h4 class = "align-right">Oct 14, 2021</h4>
+						<h3 id='Keywords'>Keywords</h3>
+						<p>•&#9;Natural Language Processing (NLP)</br> 
+							•&#9;Bidirectional Encoder Representations from Transformers (BERT)</br> 
+							•&#9;Kantian Philosophy</p>
+						<p class = "image fit"><img src="images/fulls/Immanuel_Kant.jpg" alt="" /></p>
+						<h3 id='Introduction'>I. Introduction</h3>
+						<p>After reading and studying <i>Kant's Critique of Pure Reason</i> (CPR) for a full year, 
+							I could finally have the confidence to say that I understand what Kant's endeavering to do in here. 
+							Nevertheless, I could never forget how perplexing the text first appeared to me, 
+							and how much hard work it took to unravel the perplexity. 
+							It's not sensible to impose this much input of effort on another 
+							who doesn't aim to become a Kant scholar, including the students in my class 
+							when I serve as a TA for <i>the History of Western Philosophy II</i> –  
+							they just need to get the drift of Kantian philosophy and pass the final exam. 
+							This way Kantian philosophy would also suffice to be of use to their own philosophical work 
+							by providing an inspiration or the like. 
+							A few lectures on Kant in this course seem unable to satisfy this need. 
+							At least it was the case when I took the same course 2 years ago. 
+							As a TA, what could I do to help? 
+							My coding skills came to my rescue when I struggled to proceed with German learning. 
+							Could them help my students to comprehend Kant as well? 
+							There was the incentive for this project born.</p>
+						<p>In the field of philosophical research, natural language processing (NLP) 
+							hasn't been largely employed. To put it forward phiosophically, 
+							the specific methods of NLP might themselves rest upon a few problematic prepositions 
+							from the outset. For example, if a philosopher decides to utilize Deep Learning models 
+							like BERT models to evaluate an argument, they could straightaway be confronted with 
+							unsolved conflicts within the field of philosophy of language, e.g. is contextual information
+							in the training materials enough to disentangle the semantics? 
+							Isn't it the case that language gains its meaning only in the entirety of the way of life, as Wittgenstein put forward? 
+							Nevertheless, I did this project without trying to provide remedy for these difficulties. 
+							For it only serves as an index and provides a clue for philosophizing, 
+							so that it could help with philosophy study. 
+							As for philosophizing itself, it's every philosopher's own work. 
+							</p>
+						<p>The main technology of this project is Bidirectional Encoder Representations from Transformers (BERT). 
+							I employed <a href='https://huggingface.co/bert-base-german-cased'>a BERT model (German-cased pretrained)</a> 
+							and trained it on <a href='https://www.projekt-gutenberg.org/autoren/namen/kant.html'>Kant's texts from Gutenberg DE</a>. 
+							This way I've got the semantic values of important terms. 
+							I used the <a href='https://www.degruyter.com/document/doi/10.1524/9783050050386.5/html'>introduction to CPR written by modern Kant scholars</a> 
+							to test the credibility of their semantic values. 
+							The result came out surprisingly well! Lastly, I built 
+							<a href='net.html'>a network of Kant's terminology</a> based on the semantic values.</p>
+						
+						<h3 id='The Tech'>II. The Tech</h3>
+						<p>P.S. You might want to skim over this part if you don't have any background knowledge. : )</p>
+						<h4 id='Texts and Preprocessing'>Texts and Preprocessing</h4>
+						<p><strong>1.&#9;Acquire the texts</strong>: I downloaded the texts from <a href='https://www.gutenberg.org/ebooks/search/?query=kant+&submit_search=Go%21'>Gutenberg</a> 
+							and scraped a few more down from <a href='https://www.projekt-gutenberg.org/autoren/namen/kant.html'>from Gutenberg DE</a>. 
+							I paid close attention to the HTML layout of projekt-gutenberg.de, 
+							e.g. extra line breaks, to scrape them down to continuous texts.</p>
+							<a href="https://www.projekt-gutenberg.org/autoren/namen/kant.html" class="image fit thumb">
+								<img src="images/fulls/gutenberg.jpg" alt="" /></a>
+						<p ><strong>2.&#9;Modernize the old spellings</strong>: 
+							Some of Kant's texts I acquired comprises 
+							old spellings before the orthography reform. I scraped 
+							<a href='https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages'>the old spelling pages and their subpages on wiktionary</a> 
+							to generate a dictionary of the old spellings and their corresponding modern spelling. 
+							The whole dictionary consists of 10469 words.</p>
+						<a href="https://de.wiktionary.org/w/index.php?title=Kategorie:Alte_Schreibweise_(Deutsch)&pagefrom=Bewußtseinsentwicklung#mw-pages" class="image fit thumb">
+								<img src="images/fulls/wiktionary.jpg" alt="" /></a>
+						<p class = 'havesub'><strong>3.&#9;Extract important terms from CPR (B edition)</strong>: </br>
+						<span style = 'font-size: 90%; line-height: 1.5em;'>**&#9;CPR (B edition) is considered to be Kant's most important work. 
+							Although the training materials comprise more works, my main aim was to build 
+							a terminology network of CPR. </span></p>
+						<p class = 'havesub'>•&#9;Firstly, I used some traditional methods of NLP with the help of 
+							<a href='https://spacy.io'>spacy</a> to denote the POS (Part-Of-Speech) tags 
+							and reserve the nouns. Then I calculate the frequency of them. </br>
+							<span style = 'font-size: 90%; line-height: 1.5em;'>**&#9;In my opinion, almost all of Kant's 
+								important terms take the form of a noun, or at least have a variation 
+								form as a noun. For example, an important verb "erkennen" (cognize) 
+								is also expressed as "Erkenntnis" (cognition) in the texts.
+							</span></p>
+						<p class = 'havesub'>•&#9;Secondly, using the frequent single-word terms as the base point, I generate 
+							a list of multi-word terms. I employed a few linguistic and semantic rules 
+							to extract the multi-word terms that serve our need. For example, 
+							I removed the multi-word terms that only have one word that belongs to 
+							“<a href='https://universaldependencies.org/u/pos/'>open class words</a>,” 
+							like <i>die Erkenntnis der (the knowledge of)</i>.</p>
+						<p class = 'havesub'>•&#9;Thirdly, I deleted the duplicate terms, like <i>Bedingung (condition)</i>, 
+							<i>Bedingung der (condition of)</i>, and <i>die Bedingung der (the condition of)</i>, 
+							that is, if a term's only difference to another is extra 
+							“<a href='https://universaldependencies.org/u/pos/'>closed class words</a>”, 
+							I see them as duplicates.</p>
+						<p class = 'havesub'>•&#9;Lastly and most importantly, I calculate the 
+							<a href='https://link.springer.com/article/10.1007/s007999900023'>C values</a> 
+							of each term. I chose C value as the denotation of statistical significance, 
+							because it allocates weight to the length of a term. Thus, it compares the 
+							importance of a single-word term with that of a multi-word term more fairly 
+							than simple frequency does.</p>
+						<p>Finally, 55 terms with the largest C values are picked out: </br> 
+							<i>Begriff, Vernunft, Gegenstand, Erscheinung, Erfahrung, Anschauung, 
+								Bedingung, Ding, Erkenntnis, Dinge an sich selbst, Idee, Einheit, 
+								Vorstellung, Raum, Antinomie der reinen Vernunft, Ursache, Natur, 
+								Grund, Satz, Begriffe a priori, Möglichkeit, Objekt, Wesen, Grundsatz, 
+								Ansehung, Grundsätze des reinen Verstandes, Reihe, Prinzip, Synthesis, 
+								Art, Urteil, Gesetz, Regel, Bestimmung, Gebrauch, Welt, Sinn, Verstand, 
+								Form, Substanz, Erkenntnis a priori, Wahrnehmung, Kategorie, Realität, 
+								Kritik der reinen Vernunft, Verhältnis, Verstandes, Beweis, Prinzip 
+								der systematischen Einheit, Gegenstände möglicher Erfahrung, Grenzen 
+								möglicher Erfahrung, Sinnlichkeit, Subjekt, Bedingungen der sinnlichen 
+								Anschauung, System der reinen Vernunft</i></p>
+						<p class = "image fit">
+							<img src="images/fulls/wordcloud.jpeg" alt="" /></p>
+						<p><strong>4. Sentence segmentation</strong>: Based on 
+							<a href='https://spacy.io/usage/linguistic-features#sbd'>spacy parsing</a>. 
+							Although spacy's model for German NLP is trained on modern texts, 
+							it functions pretty well with regard to parsing.</p>
+						<p class="havesub"><strong>5. the important terms with meaningless markers</strong>:</p>
+						<p class="havesub">This move is based on the following assumption: 
+							as regards terminology, Kant's use of words is so different from the 
+							everyday meaning of it that the embedding of those words in the pretrained 
+							model is more of an interference than information. 
+							So when we replace the terms with meaningless markers from “&lt;N0&gt;” to “&lt;N54&gt;”, 
+							the model could get to their correct semantic values more quickly.</p>
+						<p class="havesub">This assumption is endorsed by how the pretrained model perform 
+							regarding predictions for masked terms in the <i>Introduction to Critique of Pure Reason</i> 
+							(1998). The percentage of its correct predictions on the terms which appear 
+							more than 10 times is listed below:</p>
+						<p class="enu">•&#9;Begriff: 0.000 (0 correct out of 10)</p>
+						<p class="enu">•&#9;Vernunft: 0.360 (18 correct out of 50)</p>
+						<p class="enu">•&#9;Gegenstand: 0.200 (2 correct out of 10)</p>
+						<p class="enu">•&#9;Erfahrung: 0.040 (1 correct out of 25)</p>
+						<p class="enu">•&#9;Bedingung: 0.118 (2 correct out of 17)</p>
+						<p class="enu">•&#9;Erkenntnis: 0.000 (0 correct out of 10)</p>
+						<p class="enu">•&#9;Möglichkeit: 0.000 (0 correct out of 11)</p>
+						<p class="enu">•&#9;Urteil: 0.050 (1 correct out of 20)</p>
+						<p class="havesub">•&#9;Welt: 0.182 (2 correct out of 11)</p>
+						<p>Besides better semantic performance, this move also allows 
+							us to handle a multi-word term as a unity, preventing it from 
+							being tokenized into a few tokens. And thus, we can get the semantic 
+							value of this unity.</p>
+						<h4 id='Training, Testing, and the Excellent Result'>Training, Testing, and the Excellent Result</h4>
+						<p class="havesub"><strong>Before training</strong>:</p>
+						<p class="enu">•&#9;I used <a href='https://huggingface.co/bert-base-german-cased'>a German-cased pretrained BERT model</a> as the basis for further training on Kant's tests.</p>
+						<p class="enu">•&#9;For the sake of efficiency, I deleted sentences that are too long. </p>
+						<p>•&#9;I add &lt;N0&gt; to &lt;N54&gt; to the tokenizer, so that it sees the markers for terms as single tokens. </p>
+						<p class="havesub"><strong>Training</strong>:</p>
+						<p class="enu">•&#9;In the first 20 epochs, I set the attention masks of term markers to 0. 
+							After the model has learned the semantic values of them and after they stop being an 
+							interference to the pretrained model, their attention masks are set to 1. </p>
+						<p class="enu">•&#9;After 9 epochs, the training loss remains at 0.000000. 
+							That means 50 epochs are more than enough.</p>
+						<p>•&#9;At last, I output the embedding information 
+							for my 55 terms and the state dict of my model.</p>
+						<p class="havesub"><strong>Testing</strong>:</p>
+						<p class='havesub'>I used my model to test on the same testing materials mentioned above, namely,
+							<a href='https://www.degruyter.com/document/doi/10.1524/9783050050386.5/html'>
+								introduction to CPR written by modern Kant scholars</a>, 
+							to see how it perform regarding the predictions of terms within. 
+							The result is surprisingly good!! My model tries to guess which words should be 
+							placed at 563 masked spots. It didn't even know that this masked word should belong to the 55 terms. 
+							Each time it has to select a word from all possible words  
+							in German language along with the terminology markers. Each time it selected the right one. 
+							The percentage of its correct predictions to the terms which appear more than 20 times 
+							is listed below:</p>
+						<p class="enu">•&#9;Begriff: 1.000 (33 correct out of 33)</p>
+						<p class="enu">•&#9;Vernunft: 1.000 (68 correct out of 68)</p>
+						<p class="enu">•&#9;Gegenstand: 1.000 (29 correct out of 29)</p>
+						<p class="enu">•&#9;Erfahrung: 1.000 (40 correct out of 40)</p>
+						<p class="enu">•&#9;Anschauung: 1.000 (27 correct out of 27)</p>
+						<p class="enu">•&#9;Bedingung: 1.000 (27 correct out of 27)</p>
+						<p class="enu">•&#9;Erkenntnis: 1.000 (29 correct out of 29)</p>
+						<p class="enu">•&#9;Urteil: 1.000 (34 correct out of 34)</p>
+						<p class="havesub">•&#9;Kritik der rein Vernunft: 1.000 (49 correct out of 49)</p>
+						<p>The performance of my model indeed functions much better on texts related to 
+							Kantian philosophy than that of the pretrained model!! This means that training 
+							worked very well!! (Thanks to Kant's strict and consistent use of terminology!) 
+							If we build a network of terminology based on the semantic values I got from 
+							this model, it should be credible.</p>
+						
+						<h3 id='Evaluation of the Outcome'>III. Evaluation of the Outcome</h3>
+						<p class="havesub">The embedding of each word is a vector, denoting its semantic value. 
+							I use the (1 - log<sub>2</sub>d) (d denotes the distance between two vectors) 
+							to indicate how closely two terms are related together (namely, their “<i>relatedness</i>”). 
+							The more related words cluster together in <a href="net.html">the network</a>. </p>
+						<a href="net.html" class="image fit thumb" style="margin-bottom: 0.8em;">
+								<img src="images/fulls/network.jpg" alt="" /></a>
+						<p class="havesub" style = 'text-align: center; font-size: smaller;'>This is part of the whole network. Click on the image above to see the whole 
+							network (html layout).</p>
+						<p class='havesub'>The 7 most closely related termpairs and their relatedness are listed below:</p>
+						<p class="enu">•&#9;Begriff - Grundsatz: 7.53239</p>
+						<p class="enu">•&#9;Ding - Wahrnehmung: 7.73952</p>
+						<p class="enu">•&#9;Erkenntnis - Sinn: 14.01369</p>
+						<p class="enu">•&#9;Idee - Begriffe a priori : 7.97996</p>
+						<p class="enu">•&#9;Ursache - Bestimmung: 10.07805</p>
+						<p class="enu">•&#9;Grund - Satz: 8.17484</p>
+						<p class="havesub">•&#9;Wesen - Grundsatz: 12.33523</p>
+						<p class = 'havesub'>The results are very revealing. For example, the strong relationship between 
+							Erkenntnis (cognition or knowledge) and Sinn (sense) might be confusing 
+							if we understand these concepts as regards their everyday meaning. 
+							Proper knowledge like mathematical knowledge might be considered 
+							independent of sense or experience. However, exactly here does Kant 
+							think differently from others or commen sense. He thinks, all kinds of 
+							knowledge, including mathematical knowledge, is accompanied by sense. 
+							His stance can be capsulated into a famous quote of his: </p>
+						<blockquote class="havesub">Thoughts without content are empty, 
+							intuitions with­ out concepts are blind. (A 51 / B 75, CPR)</blockquote> 
+						<p>I'm not gonna go into philosophical details here. 
+							My point is that the relationship between terms exhibited here could 
+							be an excellent clue for one to get a grasp of Kantian philosophy.</p>
+
+						<h3 id='Places to Improve and Future Works'>IV. Places to Improve and Future Works</h3>
+						<h4>Regarding preprocessing and term extraction</h4>
+						<p class = "image right"><img src="images/fulls/autograph.jpg" alt="" /></p>
+						<p class="havesub"><strong>Latin and old spelling</strong>: 
+							Although I have already scraped all of the old spellings from wiktionary, 
+							the corpus there is still not comprehensive enough. An efficient way to 
+							rectify the so far uncorrected old spellings like “abstract” 
+							(which, in modern German, should be “abstrakt”) is yet to be found. 
+							Kant also write in Latin sometimes. These Latin text might be a 
+							interference to the model.</p>
+						<p class="havesub"><strong>Verb</strong>: During the term extraction, 
+							I ignored all the words except for nouns. According to my knowledge of 
+							Kant's style of writing, I  indeed believe this way I didn't miss out on 
+							any crucial terms. However, this might affect the value of frequency and 
+							statistical significance of the nominal terms, for their verbal variation 
+							should be counted as well. </p>
+						<p class="havesub"><strong>Customization of C value expression</strong>:  
+							I didn't simply take up the expression in <a href='https://link.springer.com/article/10.1007/s007999900023'>
+							the paper I read</a>, for it didn't function very well with Kant's texts and 
+							maybe with all texts in German. Another reason is that I've already deleted many 
+							multi-word terms that don't serve my need. Therefore, the expression of C value needed
+							customization. But I have to admit my way of customization needs justification for its
+							mathematical meaning. </p>
+						<p><strong>Use meaning variation to further filter the important words</strong>
+							: The result of term extraction isn't completely satisfactory, 
+							because some terms, frequent as they are, aren't really philosophically 
+							important, e.g. “Gebrauch” (use), “Art” (way or manner) and “Satz” (sentence). 
+							This could be solved by further filtering using the variation from the 
+							everyday meaning of a term to its meaning in the texts. The larger the 
+							variation is, the more likely it's philosophically important.</p>
+						
+						<h4>Regarding preprocessing and term extraction</h4>
+						<p class="havesub"><strong>Semi-incomparability of the test results</strong>
+							: You might have already noticed that, although tested on the same material, 
+							the frequency of terms in the test on the original model is lower than in the test on 
+							my model. This is because BERT models make predictions about single tokens. 
+							When it comes to multi-word terms or single-word terms that are tokenized into more 
+							than 2 tokens, it's hard to evaluate how well the prediction works. 
+							In the test on my model, 
+							only because I replaced all the terms with markers did this not become an issue. 
+							This means that the the test results on the original model and my model aren't exactly 
+							comparable.</p>
+						<p><strong>Enlarge the test data.</strong>
+						<h4>Regarding the final network</h4>
+						<p class="havesub"><strong>The Basis for clustering</strong>
+						: My model gains its credibility from its performance on predictions about the 
+						masked terms in the test material. However, I use the embedding parameter in my 
+						model to cluster the terms, rather than the predictor parameter. Affiliated as 
+						the two parameters are, to use the predictor parameter might render better 
+						clustering results.</p>
+						<p><strong>Other kind of relationship than similarity</strong>
+							: My network is based on the similarity among semantic values of terms. 
+							However, similarity isn't the only way that two terms are connected together. 
+							For example, “Substanz” (substance) is indeed different from “Begriff” 
+							(concept). This is manifest from their relatedness, which is -0.05585. 
+							However, they're indeed related together in the sense that substance is 
+							one of the 12 concepts a priori. I might learn the techinique of “ontology learning” 
+							to see whether this problem could be solved this way. Or I could simply use 
+							traditional methods of NLP and calculate the frequency of coappearnce of terms.</p>
+						<h4>Regarding the Visualization and the Learning Purpose</h4>
+						<p class="havesub">A few minor supplementary works like linking the terms to its definition in Kant Lexicon. </p>
+						<p>And it's also meaningful to build a network of subparts of CPR with regard to 
+							terminological statistical significance in different subparts. When two subparts 
+							are prone to talk about the same set of terms oftentimes, or they set aside 
+							the same set of terms. It might also be interesting to have a look at why 
+							this is the case.</p>
+						<h3 id='Conclusion'>V. Conclusion</h3>
+						<p>The largest surprise and satisfaction this project gives me is how accurate my model 
+							predicts the masked terms, even though I might not have done perfectly in the 
+							preparatory work like preprocessing. However, a model delivering accurate semantic 
+							values apt for predictions, already practical for learning purposes as it is, 
+							is still a long way from being complete. As listed above, there is still a lot to be 
+							done in my future works.</p>
+						<p>Like I've said in the introduction, NLP hasn't been largely put into use in the 
+							field of philosophical research – maybe less than all other disciplines in 
+							Humanities. Conceding that philosophers do have their reason to not employ 
+							this technique for philosophizing, it could indeed be practical when it comes to assisting 
+							one to philosophize. And it indeed gives me a sense of fulfillment when my 
+							work helped my students to comprehend Kant's CPR. In this respect do I believe 
+							my dabbling in this project is meaningful, and I feel excited about all the future works I
+							 would've done in the industry of information technology! : )</p>
+
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="mailto:pkulyuwenhui@gmail.com">pkulyuwenhui@gmail.com</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li><a href="bert.html">&lt;&lt; Back to the main page</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
