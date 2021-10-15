@@ -15,7 +15,6 @@
 						Kant's <i>Critique of Pure Reason</i></strong></br>
 					<span style = 'font-size: 90%;'><strong><i>by <a href = 'index.html'>
 						Karen Lyu</a></i></strong></span></h1>
-					<h1><a href='#Keywords'>Keywords</a></h1>
 					<h1><a href='#Introduction'>I. Introduction</a></h1>
 					<h1><a href='#The Tech'>II. The Tech</a></h1>
 					<h1><span style = 'font-size: 90%;'><a href='#Texts and Preprocessing'>
@@ -182,6 +181,10 @@
 						<p class="enu">•&#9;For the sake of efficiency, I deleted sentences that are too long. </p>
 						<p>•&#9;I add &lt;N0&gt; to &lt;N54&gt; to the tokenizer, so that it sees the markers for terms as single tokens. </p>
 						<p class="havesub"><strong>Training</strong>:</p>
+						<p class="enu">•&#9;It would've taken months to finish training on my own Mac Air. 
+							A Professor at my college kindly provided me with access to their server. 
+							Saved my ass!!
+						</p>
 						<p class="enu">•&#9;In the first 20 epochs, I set the attention masks of term markers to 0. 
 							After the model has learned the semantic values of them and after they stop being an 
 							interference to the pretrained model, their attention masks are set to 1. </p>
@@ -219,7 +222,9 @@
 						<p class="havesub">The embedding of each word is a vector, denoting its semantic value. 
 							I use the (1 - log<sub>2</sub>d) (d denotes the distance between two vectors) 
 							to indicate how closely two terms are related together (namely, their “<i>relatedness</i>”). 
-							The more related words cluster together in <a href="net.html">the network</a>. </p>
+							The more related words cluster together in <a href="net.html">the network</a>. 
+							The module I used to generate this network is 
+						<a href="https://pyvis.readthedocs.io/en/latest/introduction.html">pyxiv</a>.</p>
 						<a href="net.html" class="image fit thumb" style="margin-bottom: 0.1em;">
 								<img src="images/fulls/network.jpg" alt="" /></a>
 						<p class="havesub" style = 'text-align: center; font-size: smaller; line-height: 1em;'>This is part of the whole network. Click on the image above to see the whole 
@@ -351,14 +356,14 @@
 							https://universaldependencies.org/u/pos/</a></p>
 						<p class="enu">•&#9;<a href = 'https://link.springer.com/article/10.1007/s007999900023'>
 							Frantzi, K., Ananiadou, S. & Mima, H. “Automatic recognition of multi-word terms: 
-							the C-value/NC-value method.” <i>Int J Digit Libr 3</i>, 2000, pp. 115–130.</a></p>
-
+							the C-value/NC-value method.” <i>Int J Digit Libr 3</i>, 2000, pp. 115–130.</a></p>						
 
 						
 
 
 
 					</section>
+				
 
 				<!-- Three -->
 					<section id="three">
@@ -371,7 +376,12 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+							<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+								<img alt="Creative Commons License" class = 'image right' style="border-width:0; width: 3em;" 
+								src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+							<p style="font-size: 0.8em; text-align: center;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+									Creative Commons Attribution 4.0 International License</a>.</p>
+					</section>
 
 
 		<!-- Footer -->
