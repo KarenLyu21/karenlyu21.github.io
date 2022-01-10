@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print { 
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) { 
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) { 
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ''; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ''; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ''; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: '−'; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>自学德语这半年</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='自学德语这半年'><span>自学德语这半年</span></h1><p><span>我从2020年7月开始学德语。除了寒暑假以外，只能在课业之外抽零碎的时间学习。去年九月是我第一次参加歌德B2考试，近乎裸考，有幸高分通过。</span></p><p><span>2020年暑假，我脱产学了两个月，接下来的秋季学期断断续续上了十次一对一的课。去年寒假，我报了一个B2脱产班，发现班上的同学差不多只有A2的水平，有些拖慢进度，于是下决心开始自学。寒假，我脱产自学了两周，去年春季学期保持了每天半小时的自学时间。去年暑假，我报名了歌德学院的德语课程，班上的同学几乎都学习了至少两年，而我的德语已经比他们所有人都好。</span></p><p><span>想这个标题想了半天，最后还是把豆瓣上的</span><a href='https://www.douban.com/note/756170217/'><span>友邻阿卡西亚的日记</span></a><span>标题改改用了。在我刚开始规划德语自学时，她的日记和德语学习笔记帮到我很多。</span></p><p><span>P.S. 我的自学方法不仅适用于德语，对于其他外语的学习也是通用的，已经有朋友把我的方法实践到了英语学习上，取得了非常不错的效果。</span></p><p><span>目录：</span></p><ul><li><span>为什么要自学一门外语？（什么样的人适合自学？）</span></li><li><span>使用语言和间隔记忆</span></li><li><span>发音</span></li><li><span>语法</span></li><li><span>词典资源分享</span></li><li><span>怎么读和听？用什么读和听？</span></li><li><span>怎么说和写？用什么说和写？</span></li><li><span>结语</span></li></ul><h2 id='为什么要自学一门外语什么样的人适合自学）'><span>为什么要自学一门外语？（什么样的人适合自学？）</span></h2><p><span>跟着班级进度学习一门外语无疑是更轻松方便的，不需要自己设计教学方案和把控学习的进度。但是，虽然德语教学机构的老师们或许是经验丰富的，但是，在经验之中对教学原理进行反思，又是另一个层面的要求。</span></p><p><span>有的老师对</span><strong><span>人类学习和记忆的原理</span></strong><span>理解并不深入，哪怕在德国接受了“德语教学法”的科班教育，不乏有人倡导背诵课文这种事倍功半的方法。在我的经验里，只有歌德学院对大课教学的设计令人满意，不论是教材选择、课堂组织，还是技术设施的配合（包括zoom、从德国出版社买的电子教参、词汇卡片、单词搭配小游戏）。对于有的老师，优秀的德语水平并未赋予他们对等的</span><strong><span>资源收集能力</span></strong><span>，很多人在收集资源时仍然中德夹杂着进行百度搜索。英文互联网和德文互联网上有非常丰富的语言学习资源，但这都被阻隔在墙外。</span></p><p><span>当然，不仅德语老师们很难满足上述要求，这对于一个普通人而言也很难。如果决定要自学一门语言，你需要做好心理准备：</span><strong><span>初期你需要花大量的时间收集资源和设计教学法，并且学会用技术手段实现这些教学安排——虽然不需要代码基础，但的确需要现学现用少量相关知识；小众开源项目的粗糙性，也需要你不断地在电脑前trouble-shooting</span></strong><span>。我试图辅导不少朋友自学语言，最后真的完成了教学设计的人只有一个CS科班出身的同学。不过不需要特别担心，我刚开始自学德语的时候也不懂这些，在探索的时候，我发现需要掌握一些编程语言，很快就现学现用了起来；不管怎样，你得是一个不反感折腾电脑的人。</span></p><p><span>除了自己设计教学的麻烦事儿以外，</span><strong><span>自学总还是孤独的，对自己的进度也很难心里有数</span></strong><span>。半年以来，我一直感到惶惶不安，担心我这么胡搞影响了德语学习的进度。直到在歌德学院上课，我才意识到自学让我的德语进步这么快。虽然暑假的课是在线上，我在德语班上认识的朋友，也终于让我跳脱出之前的自闭生活。当然，这也有赖于歌德学院的分级考试机制，水平差太多的同学是不会被分进同一个班的，否则，被其他同学拖慢进度带来的焦虑，远远多于社交带来的快乐。</span></p><p><span>当然，我们可以</span><strong><span>用各种方法来给自己“进度感”</span></strong><span>，比如制定计划和规定每日打卡目标。21年春季学期，多亏了我的打卡群，我才能坚持每天学习0.5–1小时；刚开始自学的时候，我更是直接给导师打了一个寒假的卡，比起给同学打卡或者金钱激励，还是导师的期望更能鞭策我orz</span></p><p><span>如果能克服上述这些困难，自学语言是好处颇丰的。是否要选择自学，需要考虑自己的情况来决定。</span></p><h2 id='使用语言和间隔记忆'><span>使用语言和间隔记忆</span></h2><p><span>在我粗浅的理解中，学习一门语言，最重要的是使用它，用它去读、听、说、写。母语者怎么用，你就怎么用。在自学过程中，首要的就是每周都读了、听了、说了、写了一些东西。</span></p><p><strong><span>背单词、背课文、记忆语法规则、学习语言学等方式，都背离了这一宗旨</span></strong><span>。背单词是把单个词汇挑出来、曲解它、把它对应上母语里的一个单词，然后通过简单重复让我们的大脑在二者之间建立联系。背课文也是简单粗暴的记忆和发音练习，同主动口语表达完全是两回事。语法讲解则是试图把具体的句子形态归纳成普遍的结构。</span></p><p><span>我们当然还是可以借助这些方式学习，只是不能本末倒置。之所以要在上一段贬低这些方式的作用，是因为我见到太多的同学把绝大部分语言学习的时间花在了这上面。流水一般的外语材料输入输出，如果达到一定的量，足够把我们训练为母语者，但是，已经成年的我们，不再有大把大把的时间，放在游戏或基础教育上，只能在正事儿中挤时间学习语言。假如我有时间在不同语境中见到同一个单词100次，我相信我对它的理解只会比把词典释义背诵下来更好，在它出现的时候，我也能更自如地回忆起它的含义。可惜我没有这么充裕的时间。语法点的学习和相应练习也是同样的道理。已经成年的我们比孩童更擅长抽象思维，句子骨架即使没有具体内容也可以轻易记住；我们也能更方便地借助语言学的研究成果辅助学习记忆。总之，</span><strong><span>没有足够的时间在一种语言中游戏与生活，我们只能借助成年人的高阶能力来加快语言学习，采用背单词、记忆语法规则、学习语音学等方式。</span></strong></p><p><span>那么，我们应该怎么样背单词、学语法呢？除了对每项任务的具体安排（比如要在语境中背单词，我会在后面详细讲），我感到</span><strong><span>一个关键是间隔记忆</span></strong><span>。我精读、精听过的材料，都会把单词、表达和语法点做出</span><strong><span>anki卡片</span></strong><span>，按照anki的算法在预计好的时间背诵。知乎上已经有很多文章科普用anki学语言的好处了（传送门：</span><a href='https://www.zhihu.com/question/28335314/answer/428970652'><span>Anki 怎么用？</span></a><span>），于我而言，最大的几个好处是</span></p><ul><li><span>很多背单词app喜欢吹艾宾浩斯记忆曲线，但论</span><strong><span>记忆算法</span></strong><span>还是都比不上anki和supermemo。</span></li><li><span>anki</span><strong><span>开源社区</span></strong><span>有很多add-ons，保证我每天都可以很快做出卡片。</span></li><li><span>我也会精心设计卡片布局，保证这些卡片符合我的</span><strong><span>记忆习惯</span></strong><span>。比如说，一张卡片的核心并非单词，也不是释义，而是</span><strong><span>例句</span></strong><span>。对我来说，背卡片的意义远远大于“在外语词汇和母语词汇之间建立记忆关联”，而是</span><strong><span>反复熟悉这一语言中的众多小语境</span></strong><span>。</span></li><li><span>把学习内容转化为anki卡片，也更容易给自己“</span><strong><span>进度感</span></strong><span>”。我给自己规定好，每天都做一定量的新卡片，并且按时完成记忆算法给我安排的复习任务。这对于自学是非常重要的。</span></li></ul><p><span>对于anki的用法，后文涉及到具体的学习内容时，我会详细展开。</span></p><p><img src="https://s2.loli.net/2022/01/10/hYOt7CgvSR6lwDi.png" referrerpolicy="no-referrer" alt="过去一年里，我已经做了2871张anki卡片"></p><h2 id='发音'><span>发音</span></h2><p><span>学习德语，首先要学的就是发音规则。尽管德语教学机构里留德回国的年轻老师发音多还不错，但我感到只有极少数老师懂得如何教授发音技巧。德语的发音是非常难的，一方面，</span><strong><span>高密度辅音</span></strong><span>很考验口腔肌肉的灵活度，三个辅音连击的现象都不算罕见（比如geimpft，“已接种的”）；另一方面，德语的很多音素是</span><strong><span>中文和英语里都没有</span></strong><span>的，除了老生常谈的</span><em><span>小舌音</span></em><span>以外，还有</span><em><span>ö</span></em><span>, </span><em><span>l</span></em><span>, </span><em><span>ch</span></em><span>等等。</span></p><p><span>很多老师都会说，发音不重要，别人能听懂就行。但是，</span></p><ul><li><span>一方面，发音会</span><strong><span>严重影响表达速度</span></strong><span>。很多同学学了两三年德语以后，这种影响还是非常严重。他们说德语时，常常做的是费力地探索自己的口腔，然后绝望地选了个相近的发音部位，然后奋力地卡口水。</span></li><li><span>另一方面，某些口音会</span><strong><span>严重影响可理解性</span></strong><span>。比如说，对于will这个单词，很多南欧人可能会发成wi-le，这个发音不会引起任何歧义，le只是把半元音l发成了辅音，但发音部位都在牙后的alveolar ridge。然而，很多中国人会把will发成wir，</span><em><span>发音部位都变了</span></em><span>，是很容易让别人听不懂的。</span></li></ul><p><span>如何学习发音规则？对口腔肌肉的高要求，自然需要你</span><strong><span>多加练习</span></strong><span>。一开始没办法顺利启动特定的肌肉很正常，重要的是不要糊弄过去，一开始可以慢一点，但每次开口都要尽力说标准，这样才能起到练习的效果。</span></p><p><span>除此以外，语音学的知识也大有裨益。关于语音学的一般知识，推荐学习</span><a href='https://www.youtube.com/playlist?list=PLlmgeS8moU5ggCOvV3x8MHZy7vY-wucdU'><span>A Guide to Pronuncation in Any Language by </span><em><span>Fluent Forever</span></em></a><span>和</span><a href='https://en.wikipedia.org/wiki/Phonetics'><span>Phonetics on Wikipedia</span></a><span>；关于德语语音学，推荐学习</span><a href='https://www.youtube.com/playlist?list=PLvyVfn_eZOHoiOPk09XOTlOAdHYEzz5JW'><span>German Pronuncation by </span><em><span>Fluent Forever</span></em></a><span>。关于发音部位（见下图）、发音方式（塞音t、擦音s）的知识，能够辅助你更准确地发音。尤其是对于中文和英文里没有的发音方式，例如l和ö，</span><strong><span>你可以明确知晓应该努力调动哪块肌肉</span></strong><span>。</span></p><p><img src="https://www.uni-due.de/SHE/ArticulatoryPhonetics.gif" referrerpolicy="no-referrer" alt="发音部位"></p><p><span>除了语音学以外，</span><strong><span>听德语歌</span></strong><span>也对发音有很大帮助。音乐的编排导致某些音节拖得很长、发得很夸张，让人清楚地听到发音过程。例如，</span><em><span>Egal, was soll&#39;s</span></em><span>在我看来就是最好的响音/l/教程（让你知道为啥/l/会响23333，虽然在一般理解里它是一个辅音）。我之前写过一篇文章，分享了自己</span><a href='https://zhuanlan.zhihu.com/p/374618448'><span>听德语歌做的anki卡片组</span></a><span>，可以参考。</span></p><h2 id='语法'><span>语法</span></h2><p><span>A1–B1阶段的两位老师给我的语法打好了基础，感谢她们。这一阶段，我的语法学习依循的是新求精的语法教材，是中国人编写的，知识点和讲解的确很全，我的基础也有赖于这两本教材的编者，但现在看来，这两本书的问题也很明显。</span></p><ul><li><a href='https://book.douban.com/subject/25807876/'><span>新求精初级语法教材</span></a><span>，基本上按照初级I和初级II两本书的章节结构安排。目录只写了第几章第几节，不方便查知识点，更适合配合教材学习。这本教材会对语法点做很多细微的区分，现在看来并无必要。德语语言大的精神又没有把握住、需要自己去体会。 我在学习过程中完全离不开wikipedia和wiktionary，在它们的帮助下能够大致体会到德语语法的精神。但一起学习的很多同学并没有做到这一点，因此哪怕做了再多练习，语法还是有些问题。这其实是教材和教学的问题，比较可惜。</span></li><li><a href='https://book.douban.com/subject/30573430/'><span>新求精中级语法教材</span></a><span>更多是作者帮忙总结的短语和用法。但这些更适合精读精听时学习。不太能增加对语言本身的理解。</span></li></ul><p><span>对于语法学习，</span><a href='https://www.douban.com/note/741349110/?_i=1825260l47z83Y'><span>友邻阿卡西亚推荐了不少更好的资源</span></a><span>，</span><a href='https://www.douban.com/doulist/115546575/'><span>她自己还做了很多语法点的总结</span></a><span>，强烈推荐。</span></p><h2 id='词典资源分享'><span>词典资源分享</span></h2><p><span>进入听说读写的具体训练方法之前，先分享我的词典资源。这些词典是我自学德语过程中最重要的工具。对语法知识有比较全面的掌握以后，这些词典就足以解决大多数知识性的问题。暑假在歌德学院上课时，同学们在课堂上提的绝大多数问题，都可以在这些词典里找到答案，其中一些问题，老师都不一定答得上来。</span></p><p><span>词典文件链接: </span><a href='https://pan.baidu.com/s/1PNn8u0miCz58MvbP6eNI2g' target='_blank' class='url'>https://pan.baidu.com/s/1PNn8u0miCz58MvbP6eNI2g</a><span> 提取码: q0me。参见：</span><a href='https://www.zhihu.com/column/p/190266192'><span>如何在欧路词典中使用mdx词典</span></a><span>。除了我这里分享的词典资源以外，</span><a href='https://downloads.freemdict.com/尚未整理/共享2020.5.11/content/'><span>Freemdict论坛还有大量多语种mdx词典资源</span></a><span>。</span></p><p><span>其中，我主要使用的是以下几个：</span></p><ul><li><p><span>Langenscheidt Deutsch als Fremdsprache (DaF): 德德词典，是我B1–C1阶段主要使用的词典。</span></p><ul><li><span>在德语里，一个单词的释义往往很多，有的时候几个义项的差别还很大，往往需要读好久释义才能确认这个单词在刚刚读到的语境里是什么意思。这本词典按照用法（下图红色字体）对释义（下图蓝色非斜体）分门别类，</span><strong><span>把用法搭配视为构成单词释义的一部分</span></strong><span>，方便查询，也方便对不同义项进行区分。</span>
+<img src="https://s2.loli.net/2022/01/10/Cpo5q3LnHsdy6D7.png" referrerpolicy="no-referrer" alt="Langenscheidt DaF"></li><li><span>专门为外语学习者设计，可读性强。不像Duden，总是用我不认识的词解释我的不认识的词。</span></li></ul></li><li><p><span>Duden Das große Wörterbuch der deutschen Sprache：全面权威，辅助Langenscheidt DaF使用，给母语者使用。</span></p></li><li><p><span>Langenscheidt Collins e-Großwörterbuch Englisch (Deutsch-Englisch)：德英词典，犯懒不想读德德词典时使用。搭配非常全。</span></p></li></ul><p><span>除了这些文件以外，我还会使用几个软件或在线数据库：</span></p><ul><li><a href='https://www.linguee.com'><span>linguee</span></a><span>: 知道英语里某个说法的准确表达，用它查德语。查到以后一定再回到上面几个词典，看看这个德语单词是不是真的表达了自己的意思。</span></li><li><a href='https://www.deepl.com'><span>deepl</span></a><span>: 知道中文里某个说法的准确表达，用它查德语。查到以后一定再回到上面几个词典，看看这个德语单词是不是真的表达了自己的意思。</span></li><li><a href='https://www.dwds.de'><span>DWDS语料库</span></a><span>，可以规定时间范围、查询报刊和书籍等材料里的德语语料。写作的时候多动动手，对于某个表达或搭配，看看德国人是不是真的会这么说，还是自己杜撰出来的。</span>
+<img src="https://s2.loli.net/2022/01/10/Xt2wbSyQsVrLd8Y.png" referrerpolicy="no-referrer" alt="“damit, dass” in DWDS"></li></ul><h2 id='怎么读和听用什么读和听'><span>怎么读和听？用什么读和听？</span></h2><p><span>B2及以前的阶段，课本仍然是主要的输入材料。我没有用过太多课本，基本的感受是，原版教材都还不错。选教材时可以参见</span><a href='https://www.douban.com/note/756170217/'><span>友邻阿卡西亚的推荐</span></a><span>和</span><a href='https://www.douban.com/doulist/148061314/?sort=time&amp;start=0#item1262064515'><span>我的德语教材豆列</span></a><span>。因为我需要结合使用教材和anki，因此，选择教材时，我的首要考虑是，出版社是否提供了电子教材，这样我才好做单词卡片。</span></p><p><span>我从B2开始使用的是Aspekte系列，虽然libgen可以下载到，但还是推荐</span><a href='https://www.klett-sprachen.de/aspekte-neu-b2/t-1/9783126050241'><span>在klett-sprache官网购买电子教材</span></a><span>，</span><a href='https://www.klett-sprachen.de/aspekte-neu/r-1/15#reiter=mediathek&amp;dl_niveau_str=B2'><span>klett-sprache官网还可以下载到相当多的资源，如听力材料的Transcript</span></a><span>。</span></p><p><span>我精读教材遵循一个固定程式：</span></p><ol start='' ><li><span>首先通读全文，每句话最多读两遍，标注不明白的地方。</span></li><li><span>再次浏览一遍，主要关注每个段落的开头结尾，理解文章的结构和逻辑。</span></li><li><span>用Marginnote 3勾画不明白的句子，查询并记录生词和没有见过的表达（使用之前提到的词典资源），效果如下</span>
+<img src="https://pic1.zhimg.com/80/v2-cfd1732510771226cf03180ed016abe4_1440w.jpg" referrerpolicy="no-referrer" alt="用Marginnote 3精读课文"></li><li><span>从Marginnote 3的笔记导出anki卡片。导出方法见</span><a href='https://www.bilibili.com/video/BV1qf4y1a7Ej/'><span>我做的教学视频</span></a><span>。效果如下</span>
+<img src="https://s2.loli.net/2022/01/10/41TZmEPcxrkR9WA.jpg" referrerpolicy="no-referrer" alt="an example for normal cards">
+<img src="https://s2.loli.net/2022/01/10/Cz8r35jyYuvVRIJ.jpg" referrerpolicy="no-referrer" alt="an example for clozed cards"></li><li><span>把卡片加入anki，按照anki的记忆算法进行间隔复习</span></li></ol><p><span>这样精读下来，不仅能够提高理解单个句子的能力、理解篇章结构的能力，还能不断熟悉一个个小语境（做成anki卡片的那些小语境）。</span></p><p><span>B2及以上，</span><strong><span>泛读</span></strong><span>必不可少。推荐使用kindle。kindle上有生词本功能，会把你记录的生词和该词所在的语境存储在</span><code>/[Kindle Volumn]/system/vocabulary/vocab.db</code><span>路径里。</span><a href='https://ankiweb.net/shared/info/443244854'><span>我写了一个anki插件</span></a><span>，可以把这个文件转换为anki卡片组。这样，泛读时积累的表达，也可以加入间隔记忆的队列中，也让自己有统一的指标来衡量自己的进度。</span></p><p><strong><span>精听</span></strong><span>的程式如下：</span></p><ol start='' ><li><span>不间断地播放一遍听力材料，没听懂的先不管，尽量跟上大致的意思。听完一遍后，回想一下这篇材料的结构。</span></li><li><span>播放第二次，跟不上时可以暂停、回想一下。</span></li><li><span>播放第三次，如果还有听不懂的句子，可以倒带回放。听完三遍后，再次回想这篇材料的结构。</span></li><li><span>在Marginnote 3中打开Transcript，查询并记录生词和没有见过的表达（使用之前提到的词典资源），效果与精读类似。</span></li><li><span>从Marginnote 3的笔记导出anki卡片。导出方法见</span><a href='https://www.bilibili.com/video/BV1qf4y1a7Ej/'><span>我做的教学视频</span></a><span>。效果与精读类似。</span></li><li><span>把卡片加入anki，按照anki的记忆算法进行间隔复习。</span></li><li><span>不间断地播放一遍听力材料。如果还有听不懂的地方，可以回顾一下Transcript，并重新播放一次。如此循环，直到完全听懂。</span></li><li><span>再次播放听力材料，每播放两三句暂停下来，用自己的话或者听力原句</span><strong><span>复述</span></strong><span>这两三句话的大概意思，如果感觉有困难，倒带回放这两三句话，重新尝试复述，直到成功复述。</span></li></ol><p><span>这样精听也可以提高理解单个句子和篇章结构的能力。与此同时，刚刚听到的东西，也在复述时转化成了主动表达库，是对口语的训练。</span></p><p><span>我辅导朋友学英语时，用的是National Geographic 101系列视频训练听力，搭配anki、</span><a href='https://ankiweb.net/shared/info/1213145732'><span>截取视频信息的插件</span></a><span>、</span><a href='https://ankiweb.net/shared/info/1807206748'><span>提取mdx词典释义的插件</span></a><span>做卡片，可以很方便地截取字幕、视频截图和音频。因为用这种方法做卡片非常方便，因此</span><strong><span>也适合泛听</span></strong><span>，看视频时顺手就把卡片做出来了。德语学习可以用德国之声DW做的德语学习系列视频，如</span><a href='https://www.youtube.com/playlist?list=PL5113EDF7E1116D32'><span>Das Video-Thema</span></a><span>。有空的话我录个视频介绍一下具体方法～效果如下</span></p><p><img src="https://s2.loli.net/2022/01/10/mNYVo35r1adUykq.jpg" referrerpolicy="no-referrer" alt="用视频做anki卡片"></p><h2 id='怎么说和写用什么说和写'><span>怎么说和写？用什么说和写？</span></h2><p><span>口语一向是中国学生的老大难，网上一直流传各种提高英语口语的“秘笈”，比如背课文、复读听力材料。但是在我看来，这些方法效果都一般。背诵和复读，与其说是表达训练，不如说是发音训练。在这一过程中，我们并未尝试主动说出自己想表达的东西。</span></p><p><span>关键还是足够量的主动表达，尤其是自由表达Freisprechen。</span></p><ul><li><span>之前提到了复述听力材料，在这一过程中，我们用上自己的话或听力材料里已有的表达，还原听力材料的意思，不要求、甚至应该避免背诵原句。</span></li><li><span>除此以外，我训练口语的方法就是在</span><a href='https://www.italki.com'><span>italki</span></a><span>上找德国人聊天。我的德国老师并未提供系统的教学，与其说她是老师，不如说是</span><strong><span>语伴</span></strong><span>。我们每次选定一个话题，但具体聊什么内容其实比较随意。</span></li></ul><p><span>除了自由表达以外，我唯一的刻意训练就是</span><strong><span>课后复盘</span></strong><span>。在我表达的过程中，我的老师会及时纠正我的错误表达和奇怪说法，发在skype聊天框里，我课后会把这些内容整理成</span><strong><span>挖空卡片</span></strong><span>或</span><strong><span>英译德卡片</span></strong><span>（给出英文句子，要求翻译出德语）。</span></p><p><span>复习挖空卡片时，我需要根据语境回想出挖空处的单词，把英语句子翻译成德语句子时，我也需要回想应该用什么德语表达。</span><em><span>这种过程与主动表达接近</span></em><span>。如果做成普通卡片，我可以很轻松地理解这个单词的意思，但这不代表，当我需要使用被挖掉的单词时，我可以顺利选到它。</span></p><p><img src="https://s2.loli.net/2022/01/10/52rpivGw38PxadU.jpg" referrerpolicy="no-referrer" alt="挖空卡片"></p><p><img src="https://s2.loli.net/2022/01/10/jhLs2ZubG8gBW7A.jpg" referrerpolicy="no-referrer" alt="英译德"></p><p><span>训练写作时，我会花很多时间查词典和语料库，确保德语里确实有自己用的这些表达。写完后，我会把作文发给德语老师或者italki上的德国人修改。最后，我会</span><strong><span>复盘自己查到的新表达和他们的修改意见</span></strong><span>，做成挖空卡片和翻译卡片，与口语卡片类似。</span></p><h2 id='结语'><span>结语</span></h2><p><span>本文里提到的所有类型的anki卡片可以在这里打包下载：链接: </span><a href='https://pan.baidu.com/s/14AiyCFRNYsyjN3ATv6R9wg' target='_blank' class='url'>https://pan.baidu.com/s/14AiyCFRNYsyjN3ATv6R9wg</a><span> 提取码: 488n。你们可以直接在我的模版里填充自己的内容。如果想重新排版，需要有HTML/CSS的基础知识。</span></p><p><span>去年一月探索生产力方法两周以后，我才找到了自学的节奏。在日复一日的稳定学习中，我逐渐获得了对语言学习的掌控感，开始能从中获得乐趣。学会一门新的语言，就像打开一个新的世界。</span><em><span>从前不可言说的东西，在一种新的言谈方式获得了生命</span></em><span>。尽管我已经不再打算去德国留学，本科毕业后大概也没有机会继续做德国哲学了，但我仍然在继续学德语，并且会一直坚持下去。尽管我一开始为德语学习掉了不少头发，现在想来，过去一年中带给我最大快乐和成就感的东西，德语学习绝对有一席之地。希望这篇文章也能帮你体会到这种快乐和成就感。</span></p></div></div>
+</body>
+</html>
