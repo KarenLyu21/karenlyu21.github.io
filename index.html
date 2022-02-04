@@ -4,6 +4,7 @@
 		<title>Wenhui (Karen) Lyu's Personal Website</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
@@ -13,9 +14,8 @@
 				<div class="inner">
 					<a class="image avatar"><img src="images/photo.png" alt="" /></a>
 					<h1><strong>I am Wenhui (Karen) Lyu</strong></h1>
-					<h1>a PPE major undergraduate </br>
-						at PekingU, China</h1>
-					<h1>seeking for a professional career in CS</h1>
+					<p>a PPE major undergraduate</br> at PekingU, China,</br>
+						 in transition to CS and</br> seeking a career in tech</p>
 				</div>
 			</header>
 
@@ -27,66 +27,107 @@
 						<header class="major">
 							<h2>From Philosophy to Computer Science</h2>
 						</header>
-						<p>Through academic training in <a href='https://en.wikipedia.org/wiki/Philosophy,_politics_and_economics'>PPE <sup>Phil, PoliSci & Econ</sup></a> 
-							at <a href='https://www.pku.edu.cn'>Peking University</a> – one of the best universities across China – 
-							I've found my passion in philosophy and become qualified as a young Kant scholar. 
-							During my undergraduate study, I've won many awards and scholarships, including 
-							<a href='https://baike.baidu.com/item/国家奖学金/9693046'>the National Scholarship</a>, 
-							which is awarded only to top 0.2% students in China.</p>
-							<p>When serving as a TA in philosophy courses, I found the revealing insights in my eyes 
-							can be every difficult for others to approach, including students in my class.
-							This became the occasion for my CS skills, which have heitherto escorted me to 
-							success in German language learning, to find their way into <a href='bert.html'>a interdisciplinary 
-							research project</a> listed below.</p>
-							<p>When dabbling in the project, I found my enthusiathm about CS beyond the sketchy summary 
-								of “interdisciplinary research”. It simply gives me <strong>a strong feeling of fulfillment</strong>, 
-								when I see that my students finally got a grasp of Kantian philosophy, following the clue 
-								provided by my project. Being able to reach something more easily – this is also exactly
-								how I felt when a few scripts helped me learn german much more efficiently.</p>
-								<p><strong>Assistances from cutting-edge technology to make life better</strong> 
-								– that's what I see in a professional career in CS. I would be thrilled if I  
-								could deepen my knowledge and skills in NLP within a MS program in CS, yet utility 
-								of my future works doesn't have to be limited to the field of philosophy. </p>
-							<ul class="actions">
-								<li><a href="CV.pdf" class="button">See My CV <sup>.pdf</sup></a></li>
-								</ul>
+						<p>Having dived in the study of German philosophy for 3 years, I am now steering another course and seeking a career in tech.
+							Philosophy made me who I am, while coding as a developer is now my way of <i>Erstellung</i> (creation).</p>
+						<p>I am especially intrested in Technology-Enhanced Learning (TEL) initiative.
+							I have dabbled in this field and made a few attempts,
+							including works related to philosophy education and language learning.</p>
+						<p>I am planning on a bigger project of—a more handy productivity suite for—language learning. 
+							If you are interested, feel free to contact me <a href="mailto:pkulyuwenhui@gmail.com">via email</a> (see below).</p>
+						<p>Check below and see my works since my transition to CS a half year ago. 
+							You might find them not created equal 
+							<i class="far fa-grin-wink"></i>
+						</p>
 						</section>
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Recent Work</h2>
+						<h2>Recent Works</h2>
 						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/network.jpg" class="image fit thumb"><img src="images/thumbs/network.png" alt="" /></a>
-								<h3>Terminology Network in Kant's <i>Critique of Pure Reason</i></h3>
-								<p>•&#9;Preprocess the texts and extract important terms</p>
-								<p>•&#9;Train <a href='https://huggingface.co/bert-base-german-cased'>a BERT model (German-cased pretrained)</a> on Kant's works</p> 
-								<p>•&#9;Get the semantic vectors of the terms and build <a href='net.html'>a network of terminology</a>.</p>
+							<article class="col-6 col-12-small work-item">
+								<a href="images/fulls/network_full.png" class="image fit thumb"><img src="images/thumbs/network_thumb.png" alt="network" /></a>
+								<h3><a href="bert.html">Terminology Network in Kant's <i>Critique of Pure Reason</i></a></h3>
+								<ul>
+									<li>Collected 10k+ lines of data and extracted important terms with traditional NLP methods</li>
+									<li>Trained a BERT model on texts of 860k+ words</li>
+									<li>Increased the prediction accuracy of the pretrained model by more than 70%</li>
+								</ul>
+							</article>
+							<article class="col-6 col-12-small work-item">
+								<a href="images/fulls/kantmap_full.png" class="image fit thumb"><img src="images/thumbs/kantmap_thumb.png" alt="kantmap_thumb" /></a>
+								<h3><a href="http://www.kantmap.com/">Kantmap: A Website with Interactive Animations</a></i></h3>
+								<ul>
+									<li>Generated a network of terms according to the semantic vectors in my BERT model</li>
+									<li>Built a website with animated interactions to help my students utilize the terminology network</li>
+									<li>Initialized and managed user service and deployed it to Google Compute Engine</li>
+								</ul>
+							</article>
+							<article class="col-6 col-12-small work-item">
+								<a href="images/fulls/homework.JPEG" class="image fit thumb"><img src="images/thumbs/homework_sample.JPG" alt="homework_sample" /></a>
+								<h3><a href="https://karenlyu21.github.io/hw-ss-computing/afterword_eng.html">A Philosophy Student’s CS Homework</a></h3>
+								<ul>
+									<li>Invited by <a href="https://eecs.pku.edu.cn/info/1337/7036.htm">Professor Xiaoming Li from CS department at PKU</a> 
+										to share my 10 assignments of Computational Practices for Social Science Research</li>
+									<li>Compiled a 90-page pamphlet of 1k+ lines of codes and illustrations at length</li>
+									<li>Will be used for pedagogical reform of social sciences and humanities at PKU and in China</li>
+								</ul>
+							</article>
+							<article class="col-6 col-12-small work-item">
+								<a href="images/fulls/german.png" class="image fit thumb"><img src="images/thumbs/german_thumb.png" alt="german_thumb" /></a>
+								<h3><a href="German.html">The Half Year of Self-Learning German</a>
+									<sup>in Chinese</sup>
+								</h3>
+								<ul>
+									<li>Shared my productivity suite and tips for language learning</li>
+									<li>Drawed resources from linguistics, as well as made use of apps and coding skills</li>
+									<li>The <a href="https://www.douban.com/note/823712588/?_i=3966344l47z83Y">douban diary version</a> received 46k+ visits.</li>
+								</ul>
+							</article>
+							<article class="col-6 col-12-small work-item">
+								<a href="images/fulls/kindle2anki.jpeg" class="image fit thumb"><img src="images/thumbs/kindle2anki_thumb.jpg" alt="kindle2anki_thumb" /></a>
+								<h3><a href="https://ankiweb.net/shared/info/443244854">kindle2anki (light)</a></h3>
+								<ul>
+									<li>Coded 1k+ lines in Python and developed an for a learning app Anki</li>
+									<li>This add-on helps generate vocabulary cards in multiple languages from reading notes on a Kindle</li>
+								</ul>
 							</article>
 						</div>
-						<ul class="actions">
-							<li><a href="bert.html" class="button">Full Article</a></li>
-						</ul>
 					</section>
 
 				<!-- Three -->
 					<section id="three">
-						<h2>Get In Touch</h2>
-							<div class="col-4 col-12-small">
+						<h2>Learn more and get in touch</h2>
 								<ul class="labeled-icons">
 									<li>
 										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
 										<a href="mailto:pkulyuwenhui@gmail.com">pkulyuwenhui@gmail.com</a>
 									</li>
+									<li>
+										<h3 class="icon solid fa-file"><span class="label">CV</span></h3>
+										<a href="CV.pdf">My CV <sup>.pdf</sup></a>
+									</li>
+									<li>
+										<h3 class="icon brands fa-github"><span class="label">GitHub</span></h3>
+										<a href="https://github.com/KarenLyu21">My GitHub Profile</sup></a>
+									</li>
+									<li>
+										<h3 class="icon solid fa-user-circle"><span class="label">Douban</span></h3>
+										<a href="https://www.douban.com/people/dasreine/?_i=3965955l47z83Y">
+											My Douban Profile</a> <sup>in Chinese</sup>
+									</li>
 								</ul>
-							</div>
-						</div>
 					</section>
 
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
+					<ul class="icons">
+						<li><a href="mailto:pkulyuwenhui@gmail.com" class="icon solid fa-envelope">
+							<span class="label">Email</span></a></li>
+						<li><a href="https://github.com/KarenLyu21" class="icon brands fa-github">
+							<span class="label">Github</span></a></li>
+					</ul>
 					<ul class="copyright">
 						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
